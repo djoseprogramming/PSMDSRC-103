@@ -1,0 +1,11 @@
+﻿prof_id,prof_fname,prof_lname,prof_title,prof_username,prof_password,dept_code
+1,Alice,Johnson,Dr.,pjohnali,prof0001,COMP
+2,Bob,Smith,Dr.,psmitbob,prof0002,MATH
+3,Carol,Lee,Dr.,pleecar,prof0003,PHYS
+4,David,Kim,Dr.,pkimdav,prof0004,CHEM
+5,Eva,Brown,Dr.,pbroweva,prof0005,BIOL
+6,Frank,White,Dr.,pwhitfra,prof0006,COMP
+7,Grace,Black,Dr.,pblacgra,prof0007,MATH
+8,Henry,Green,Dr.,pgreehen,prof0008,PHYS
+9,Irene,Thomas,Dr.,pthomire,prof0009,CHEM
+10,Jason,Turner,Dr.,pturnjas,prof0010,BIOL

@@ -1,0 +1,13 @@
+crs_code,crs_title,crs_description,crs_credit,dept_code
+BIO101,Intro to Biology,"Basics of cells, genetics, evolution, and ecology.",3,BIOL
+BIO201,Molecular & Cellular Biology,"Focus on cell functions, DNA processes, and molecular biology.",3,BIOL
+CHEM101,General Chemistry I,"Intro to atomic structure, bonding, and reactions.",3,CHEM
+CHEM201,Organic Chemistry I,"Study of organic compounds and reaction mechanisms.",3,CHEM
+CS101,Introduction to Computer Science,"Overview of computing, programming fundamentals, and algorithms.",3,COMP
+CS201,Data Structures & Algorithms,"Exploration of arrays, lists, trees, and algorithm design.",3,COMP
+CS301,Advanced Algorithms,"Topics in complex algorithm techniques and computational theory.",3,COMP
+MATH101,Elementary Statistics,"Fundamentals of statistics and probability.",3,MATH
+MATH201,Calculus I,"Introduction to limits, derivatives, and integrals.",3,MATH
+MATH301,Mathematical Analysis,"Rigorous review of real analysis, limits, and continuity.",3,MATH
+PHY101,General Physics I,"Basics of mechanics, motion, and energy.",3,PHYS
+PHY201,General Physics II,"Intro to electromagnetism, optics, and wave phenomena.",3,PHYS
