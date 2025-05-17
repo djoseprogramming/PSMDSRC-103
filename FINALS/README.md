@@ -1,9 +1,9 @@
 # MicroUni Enrollment System
 
 A CLI-based enrollment system that supports multiple user roles—admin, professor, and student. This project demonstrates modular Python design with clear separation between database operations, business logic, user interface, reporting, and utility functions.
-
 ## Table of Contents
 - [Project Overview](#project-overview)
+- [Video Demo](#video-demo)
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Database Schema](#database-schema)
@@ -16,6 +16,9 @@ A CLI-based enrollment system that supports multiple user roles—admin, profess
 ## Project Overview
 
 This MicroUni enrollment system is a command-line application that allows administrators to create and manage records for users (admins, professors, and students), classes, courses, departments, enrollments, and room/building details. Each user role has tailored functionality, and the application includes comprehensive reporting features.
+
+## Video Demo
+Youtube: https://youtu.be/w2y9RMOzJnM
 
 ## Features
 
