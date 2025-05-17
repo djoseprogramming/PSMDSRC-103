@@ -89,7 +89,7 @@ The reporting module includes a department summary report. In the latest update,
 ## Usage
 
 - **Authentication:**  
-  Start at the welcome screen to log in as admin, professor, or student. (Hint: admin)
+  Start at the welcome screen to log in as admin, professor, or student. (Changed the initial credentials to UN/PW: admin)
   
 - **Admin Functions:**  
   Create and manage records (students, professors, courses, etc.) and view enrollment details.
