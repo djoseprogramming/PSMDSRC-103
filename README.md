@@ -15,7 +15,7 @@ A CLI-based enrollment system that supports multiple user roles—admin, profess
 
 ## Project Overview
 
-This mini-college enrollment system is a command-line application that allows administrators to create and manage records for users (admins, professors, and students), classes, courses, departments, enrollments, and room/building details. Each user role has tailored functionality, and the application includes comprehensive reporting features.
+This MicroUni enrollment system is a command-line application that allows administrators to create and manage records for users (admins, professors, and students), classes, courses, departments, enrollments, and room/building details. Each user role has tailored functionality, and the application includes comprehensive reporting features.
 
 ## Features
 
@@ -89,7 +89,7 @@ The reporting module includes a department summary report. In the latest update,
 ## Usage
 
 - **Authentication:**  
-  Start at the welcome screen to log in as admin, professor, or student.
+  Start at the welcome screen to log in as admin, professor, or student. (Hint: admin)
   
 - **Admin Functions:**  
   Create and manage records (students, professors, courses, etc.) and view enrollment details.
