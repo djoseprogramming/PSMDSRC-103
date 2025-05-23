@@ -260,36 +260,44 @@ def a_manage(db, table):
         if query == "*" or query == "":
             filtered = searches
         else:
-            if table == "admin":
+            if table == "admin" or table == "course":
                 filtered = [
                     search for search in searches
-                    if (query in str(search[0]).lower() or query in search[1].lower() or
-                        query in search[2].lower() or query in search[3].lower() or
-                        query in search[4].lower())
+                    if (query in str(search[0]).lower() or query in str(search[1]).lower() or
+                        query in str(search[2]).lower() or query in str(search[3]).lower() or
+                        query in str(search[4]).lower())
                 ]
             elif table == "professor":
                 filtered = [
                     search for search in searches
-                    if (query in str(search[0]).lower() or query in search[1].lower() or
-                        query in search[2].lower() or query in search[3].lower() or
-                        query in search[4].lower() or query in search[5].lower())
+                    if (query in str(search[0]).lower() or query in str(search[1]).lower() or
+                        query in str(search[2]).lower() or query in str(search[3]).lower() or
+                        query in str(search[4]).lower() or query in str(search[5]).lower())
+                ]
+            elif table == "class":
+                filtered = [
+                    search for search in searches
+                    if (query in str(search[0]).lower() or query in str(search[1]).lower() or
+                        query in str(search[2]).lower() or query in str(search[3]).lower() or
+                        query in str(search[4]).lower() or query in str(search[5]).lower() or
+                        query in str(search[6]).lower())
                 ]
             elif table == "student":
                 filtered = [
                     search for search in searches
-                    if (query in str(search[0]).lower() or query in search[1].lower() or
-                        query in search[2].lower() or query in search[3].lower())
+                    if (query in str(search[0]).lower() or query in str(search[1]).lower() or
+                        query in str(search[2]).lower() or query in str(search[3]).lower())
                 ]
-            elif (table == "department" or table == "building"):
+            elif table == "department" or table == "building":
                 filtered = [
                     search for search in searches
-                    if query in str(search[0]).lower() or query in search[1].lower()
+                    if query in str(search[0]).lower() or query in str(search[1]).lower()
                 ]
-            elif (table == "enrollment" or table == "room"):
+            elif table == "enrollment" or table == "room":
                 filtered = [
                     search for search in searches
-                    if (query in str(search[0]).lower() or query in search[1].lower() or
-                        query in search[2].lower())
+                    if (query in str(search[0]).lower() or query in str(search[1]).lower() or
+                        query in str(search[2]).lower())
                 ]
         
         # Display the table of records (if any match the query)
@@ -515,11 +523,11 @@ def print_table(filtered, page=0, table="", db=""):
         print("=" * WIDTH)
 
     elif table == "course":
-        codew = 10      # Width for Course Code
+        codew = 11      # Width for Course Code
         titlew = 36     # Width for Course Title
         descw = 40      # Width for Description
         creditw = 8     # Width for Course Credit
-        deptw = 10      # Width for Department Code
+        deptw = 9      # Width for Department Code
         print("=" * WIDTH)
         header = (
             f"| {'Course Code'.ljust(codew)} | "
