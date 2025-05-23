@@ -101,7 +101,7 @@ The reporting module includes a department summary report. In the latest update,
   Professors can view their class rosters while students can browse classes and manage enrollments.
   
 - **Reporting:**  
-  Access the reports module from the admin menu to view department summaries and visualizations.
+  Access the reports module from the admin menu to view department summaries and visualizations and can be exported to CSV.
 
 ## Future Improvements
 
