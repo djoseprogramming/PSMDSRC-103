@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt  # For plotting charts and graphs
 from config import WIDTH
 from utils.helpers import clear, pad, browse_courses, browse_students  # Utility functions for screen management and student/course browsing
+import pandas as pd
 
 def reports_menu(db):
     # Main loop for the reports submenu
@@ -32,8 +33,8 @@ def reports_menu(db):
             print("Returning to Admin Home...")  # Inform the user they are leaving the reports menu
             break  # Exit the reports menu loop
         else:
-            print("Invalid option. Please try again.")
-            input("Press Enter to continue...")
+            input("Invalid option. Please try again. Press Enter to continue...")
+            continue
 
 def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
     # This report displays the roster for a specific course.
@@ -92,7 +93,7 @@ def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
             title_students = f" ENROLLED STUDENTS FOR {course_code.upper()} - {course_title.upper()} "
             title_prof = f"Professor: {prof_fullname}"
             print(title_students.center(WIDTH, "="))
-            print("Commands: < = Prev     > = Next     ! = Back")
+            print("Commands: < = Prev     > = Next     ! = Back     x = Export")
             print("")
             print(title_prof)
             print("=" * total_width)
@@ -109,7 +110,7 @@ def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
             print(f"Showing records {start+1}-{min(end, len(students))} of {len(students)}")
             pad()
             cmd = input("Enter Command: ").strip().upper()
-            # Handle pagination commands: next page (">"), previous page ("<"), or exit ("!" or "B")
+            # Handle pagination commands: next page (">"), previous page ("<"), or exit ("!")
             if cmd == ">":
                 if end < len(students):
                     page += 1
@@ -124,10 +125,21 @@ def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
                 else:
                     input("Already at first page. Press Enter...")
                     continue
-            elif cmd in ["!", "B"]:
+            elif cmd == "!":
                 break  # Exit the course roster report
+            elif cmd == "X":
+                df = pd.DataFrame(students, columns=["ID", "First Name", "Last Name"])
+                filename = f"exports\ENROLLED_STUDENTS_{course_code.upper()}_{selected_prof[2].upper()}_{selected_prof[1].upper()}.csv"
+                try:
+                    df.to_csv(filename, index=False)
+                    print(f"CSV exported successfully to {filename}.")
+                except Exception as e:
+                    print(f"CSV export failed: {e}")
+                input("Press Enter to return to the course list...")
+                continue
             else:
                 input("Invalid command. Press Enter to continue...")
+                continue
         return  # End of the branch for provided selected_course
     
     # Alternative branch: let the user select a course via the browse_courses utility
@@ -183,7 +195,7 @@ def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
             title_students = f" ENROLLED STUDENTS FOR {course_code.upper()} - {course_title.upper()} "
             title_prof = f"Professor: {prof_fullname}"
             print(title_students.center(WIDTH, "="))
-            print("Commands: < = Prev     > = Next     ! = Back")
+            print("Commands: < = Prev     > = Next     ! = Back     x = Export")
             print("")
             print(title_prof)
             print("=" * total_width)
@@ -214,10 +226,21 @@ def report_course_roster(db, role="admin", prof_id=None, selected_course=None):
                 else:
                     input("Already at first page. Press Enter...")
                     continue
-            elif cmd in ["!", "B"]:
+            elif cmd == "!":
                 break  # Exit current pagination loop and return to course selection
+            elif cmd == "X":
+                df = pd.DataFrame(students, columns=["ID", "First Name", "Last Name"])
+                filename = f"exports\ENROLLED_STUDENTS_{course_code.upper()}_{selected_prof[2].upper()}_{selected_prof[1].upper()}.csv"
+                try:
+                    df.to_csv(filename, index=False)
+                    print(f"CSV exported successfully to {filename}.")
+                except Exception as e:
+                    print(f"CSV export failed: {e}")
+                input("Press Enter to continue...")
+                continue
             else:
                 input("Invalid command. Press Enter to continue...")
+                continue
 
 def report_student_timetable(db):
     # This report displays the timetable for a selected student.
@@ -266,7 +289,23 @@ def report_student_timetable(db):
             print("No courses found for that student.".center(WIDTH))
         print("=" * WIDTH)
         pad()
-        input("Press Enter to return to the student list...")
+        export = input("Export Student Timetable? (Y/N): ").strip().lower()
+        if export == "y" or export == "yes":
+            df = pd.DataFrame(rows, columns=["Course ID", "Course Name", "Schedule", "Professor"])
+            filename = f"exports\TIMETABLE_{student_info[1].upper()}_{student_info[0].upper()}.csv"
+            try:
+                df.to_csv(filename, index=False)
+                print(f"CSV exported successfully to {filename}.")
+            except Exception as e:
+                print(f"CSV export failed: {e}")
+        
+            input("Press Enter to return to the student list...")
+            continue
+        else:
+            input("Invalid command. Press Enter to continue...")
+            continue
+
+
 
 def report_department_summary(db):
     """
@@ -321,4 +360,14 @@ def report_department_summary(db):
         print("No data available for plotting.")
 
     pad()
-    input("Press Enter to continue...")
+    export = input("Export Department Summary? (Y/N): ").strip().lower()
+    if export == "y" or export == "yes":
+        filename = "exports\DEPARTMENT_SUMMARY.csv"
+        try:
+            df.to_csv(filename, index=False)
+            print(f"CSV exported successfully to {filename}.")
+        except Exception as e:
+            print(f"CSV export failed: {e}")
+        input("Press Enter to continue...")
+    else:
+        input("Press Enter to continue...")
