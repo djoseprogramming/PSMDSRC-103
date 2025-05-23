@@ -1,0 +1,6 @@
+dept_id,department_name,num_classes,num_enrollments,avg_class_size
+BIOL,Biology,4,25,6.25
+CHEM,Chemistry,4,24,6.0
+COMP,Computer Science,6,36,6.0
+MATH,Mathematics,6,44,7.33
+PHYS,Physics,4,22,5.5
