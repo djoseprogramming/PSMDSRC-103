@@ -1,6 +1,6 @@
 # MicroUni Enrollment System
 
-A CLI-based enrollment system that supports multiple user roles—admin, professor, and student. This project demonstrates modular Python design with clear separation between database operations, business logic, user interface, reporting, and utility functions.
+A CLI-based enrollment system that supports multiple user roles such as admin, professor, and student. This project demonstrates modular Python design with clear separation between database operations, business logic, user interface, reporting, and utility functions.
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Video Demo](#video-demo)
@@ -26,13 +26,13 @@ Youtube: [https://youtu.be/w2y9RMOzJnM](https://youtu.be/uAHaOJp1Xzg)
 - **Modular Design:** Separates concerns into dedicated modules: database, controllers, views, reports, utilities, and configuration.
 - **Robust Database Operations:** Performs CRUD operations with transaction handling and rollback for data integrity.
 - **CSV Data Import:** Automatically imports initial data if available.
-- **Comprehensive Reporting:** Provides department summary reports that reflect the latest update—calculating the average students per class.
+- **Comprehensive Reporting:** Provides department summary reports that reflect the latest update such as calculating the average students per class and can be exported to CSV.
 - **Interactive CLI Navigation:** User-friendly, paginated menus for managing large datasets.
 
 ## Project Structure
 
 - **Main Module (`main.py`):**  
-  Acts as the entry point and coordinator—it initializes the environment (database and default admin), displays the welcome screen, and then directs users to role-specific controllers or the reports module.
+  Acts as the entry point and coordinator. It initializes the environment (database and default admin), displays the welcome screen, and then directs users to role-specific controllers or the reports module.
 
 - **Database Module (`database.py`):**  
   Contains the `Database` class which encapsulates all CRUD operations, CSV data import, table instantiation, and transactional integrity. It also uses Pandas for post-query processing in reporting.
